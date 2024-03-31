@@ -1,0 +1,17 @@
+//Implement a function that checks whether a given number is prime or not.
+
+fn isPrime(num:i32, i:i32)->i32{
+    if (i == 1){
+        return 1;
+    }
+    else{
+       if (num % i == 0)
+       {
+         return 0;
+       }
+       else
+       {
+         return isPrime(num, i - 1);
+       }       
+    }
+}
