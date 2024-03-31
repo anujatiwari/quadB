@@ -1,0 +1,25 @@
+//Implement a function that checks whether a given string is a palindrome or not.
+//using two pointers
+
+impl Solution{
+    pub fn is_palindrome(s:String)->bool{
+        let mut str=String::new();
+        for c in s.chars(){
+            if c.is_alphanumeric(){
+                str.push(c.to_lowercase().next().unwrap());
+            }
+        }
+
+        let mut l = 0;
+        let mut r = str.len().checked_sub(1).unwrap_or(0);
+        while l < r{
+            if str.chars().nth(l).unwrap() != str.chars().nth(r).unwrap(){
+                return false;
+            }
+            l += 1;
+            r = r.checked_sub(1).unwrap_or(0);
+        }
+
+        true
+    }
+}
