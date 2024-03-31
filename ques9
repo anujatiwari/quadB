@@ -1,0 +1,12 @@
+//Reverse a string
+//time complexity is O(n)
+
+fn reverseStr(input: &str) -> String{
+    let mut reversed=String::with_capacity(input.len());
+
+    for ch in input.chars().rev(){
+        reversed.push(ch);
+    }
+
+    reversed
+}
