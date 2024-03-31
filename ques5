@@ -1,0 +1,12 @@
+//Given a sorted array of integers, implement a function that returns the median of the array.
+//time complexity is O(1)
+
+fn getMedian(arr: &[i32]) -> f64{
+    let len = arr.len();
+    if len % 2==0{
+        let mid=len / 2;
+        return(arr[mid-1]+arr[mid]) as f64/2.0;
+    }else{
+        return arr[len/2] as f64;
+    }
+}
