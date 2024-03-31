@@ -1,0 +1,22 @@
+//Given a binary tree, implement a function that returns the maximum depth of the tree.
+
+use std::rc::Rc;
+use std::cell::RefCell;
+
+impl Solution{
+   pub fn max_depth(root: Option<Rc<RefCell<TreeNode>>>) -> i32{
+       let mut ans= 0;
+       let mut stack = vec![(root, 0)];
+       while let Some((node, mut depth)) = stack.pop(){
+           if let Some(node) = node{
+               let node = node.borrow();
+               depth += 1;
+               ans=ans.max(depth);
+              
+               stack.push((node.left.clone(), depth));
+               stack.push((node.right.clone(), depth));               
+           }
+       }
+       ans
+   }
+}
