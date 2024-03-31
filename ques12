@@ -1,0 +1,17 @@
+//Find the maximum subarray sum
+//Kadane's algorithm
+//Time Complexity is O(n)
+
+impl Solution{
+   pub fn max_sub_array(nums: Vec<i32>) -> i32{
+       let (mut c, mut ans) = (nums[0], nums[0]);
+       for i in 1..nums.len(){
+           c = match c < 0 {
+               true => nums[i],
+               _ => c + nums[i]
+           };
+           ans = ans.max(c);
+       }
+       ans
+   }
+}
