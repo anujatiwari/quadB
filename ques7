@@ -1,6 +1,7 @@
 //Implement a function that returns the kth smallest element in a given array.
 //Time complexity is O(n*logk)
-fn kth_smallest(array: &[i32], k: usize) -> Option<i32> {
+
+fn kth_smallest(array: &[i32], k: usize) -> Option<i32>{
 use std::collections::BinaryHeap;
 use std::cmp::Reverse;
     let mut p= BinaryHeap::new();
@@ -8,7 +9,7 @@ use std::cmp::Reverse;
     for &n in array {
         p.push(Reverse(n));
 
-        if p.len() > k {
+        if p.len() > k{
             p.pop();
         }
     }
