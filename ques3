@@ -1,0 +1,15 @@
+//Given a string of words, implement a function that returns the shortest word in the string.
+//time complexity is O(n)
+fn get_shortest<'a>(words: &Vec<&'a str>) -> Option<&'a str>{
+        if words.len()==0{
+            return None;
+        }
+        
+        let mut n=words[0];
+        for word in words{
+            if word.len()<n.len(){
+                n=word;
+            }
+        }
+        return Some(n);
+    }
