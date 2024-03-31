@@ -1,0 +1,22 @@
+//Implement a function that finds the longest common prefix of a given set of strings.
+//time complexity is  O(n)
+impl Solution{
+    pub fn commonPrefix(strs:Vec<String>) -> String{
+        fn lcp_inplace(mut str1: String, str2: &str) -> String{
+            let mut i = 0;
+            for (a1, a2) in str1.chars().zip(str2.chars()){
+                if a1 != a2{
+                    break;
+                }
+                i += 1;
+            }
+            str1.truncate(i);
+            str1
+        }
+        if strs.len()>0{
+            strs.iter().skip(1).fold(strs[0].clone(), |acc, x| lcp_inplace(acc, &x))
+        }else{
+            String::from("")
+        }
+    }
+}
